@@ -16,7 +16,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Load .env from the same directory as the script
-load_dotenv(Path(__file__).parent / ".env")
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 IMAP_HOST            = os.getenv("IMAP_HOST", "127.0.0.1")
@@ -32,7 +32,7 @@ if not USERNAME or not PASSWORD:
     raise ValueError("PROTON_USERNAME and PROTON_BRIDGE_PASSWORD must be set in your .env file")
 
 # ── Logging ───────────────────────────────────────────────────────────────────
-log_path = Path(__file__).parent / "logs" / "quark.log"
+log_path = Path(__file__).parent.parent / "logs" / "quark.log"
 log_path.parent.mkdir(exist_ok=True)
 
 logging.basicConfig(
